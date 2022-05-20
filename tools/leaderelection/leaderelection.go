@@ -235,6 +235,10 @@ func (le *LeaderElector) GetLeader() string {
 
 // IsLeader returns true if the last observed leader was this client else returns false.
 func (le *LeaderElector) IsLeader() bool {
+
+	klog.Errorf("TTHE TTHE le.getObservedRecord().HolderIdentity is %s", le.getObservedRecord().HolderIdentity)
+	klog.Errorf("TTHE TTHE le.config.Lock.Identity() is %s", le.config.Lock.Identity())
+
 	return le.getObservedRecord().HolderIdentity == le.config.Lock.Identity()
 }
 
